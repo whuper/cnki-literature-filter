@@ -1,4 +1,37 @@
-﻿; (function () {
+﻿;(function () {
+
+ var page_host = window.location.host;
+
+console.log('page_host ',page_host);
+
+if(page_host.indexOf('zjgsu') != -1 || page_host.indexOf('idp') != -1){
+
+     setTimeout(() => {
+
+          document.getElementById("username").value= "20020181225";
+          document.getElementById("password").value= "168232";
+
+     }, 500);
+
+     setTimeout(() => {
+
+          // var idp_form = document.forms[0];
+          var login_Btn = document.getElementsByTagName('button')[0];
+          // idp_form.submit();
+
+          login_Btn.click()
+
+     }, 500);
+
+
+}
+
+if(typeof jQuery == 'undefined'){
+     console.log('没有 JQUERY');
+     return
+}
+
+
      var literatureList = [
           '管理世界',
           '中国工业经济',
@@ -26,17 +59,18 @@
           '企业经济',
           '心理科学'];
 
-     console.log('这是 inject.js ！');
+var a_color = "background: rgb(248, 177, 173); color: rgb(0, 128, 0)";
+
+     console.log("%c 这是 inject.js ！", a_color);
 
      $(document).ajaxComplete(function () {
-          console.log(55)
+          console.log('aC')
           debounce(handle, 1500);
      });
 
      let timer;
 
-     function debounce(fn, wait) {
-          console.log(77)
+     function debounce(fn, wait) {   
           //return function(){
           if (timer !== null) {
                window.clearTimeout(timer);
@@ -46,8 +80,8 @@
      }
 
      function handle() {
-          console.log(Math.random());
-          console.log(777, 'ajaxComplete');
+          // console.log(Math.random());
+          console.log('aC2', 'ajaxComplete');
           let literature = $("div.sidebar-filter");
 
           if (literature) {
@@ -66,7 +100,8 @@
                               console.log($element.text());
 
                               if (literatureList.includes($element.text())) {
-                                   console.log('匹配到 ', $element.text());
+                                   // console.log('匹配到 ', $element.text());
+                                   console.log("%c 匹配到" + $element.text(), a_color);
                                    $element.addClass('wenhao-highlight')
                                    // element.css()
                               }
@@ -132,5 +167,7 @@
 
 
      })
+
+
 
 })();

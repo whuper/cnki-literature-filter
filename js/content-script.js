@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function()
 	/*$( document ).ajaxComplete(function() {
 		console.log(666);
 	});*/
-		// 注入自定义JS
+	// 注入自定义JS
 	injectCustomJs();
 
 

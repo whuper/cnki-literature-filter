@@ -22,7 +22,11 @@
 	"content_scripts": 
 	[
 		{
-			"matches": ["https://kns.cnki.net/*","https://www.cnki.net/*"],
+			"matches": [
+				"https://kns.cnki.net/*",
+				"https://www.cnki.net/*",
+				"https://idp.zjgsu.edu.cn/*"
+			],
 			"js": ["js/content-script.js"],
 			"css": ["css/custom.css"],
 			"run_at": "document_start"
