@@ -63,23 +63,25 @@ var a_color = "background: rgb(248, 177, 173); color: rgb(0, 128, 0)";
 
      console.log("%c 这是 inject.js ！", a_color);
 
-     $(document).ajaxComplete(function () {
+/*      $(document).ajaxComplete(function () {
           console.log('aC')
           debounce(handle, 1500);
-     });
+     }); */
+     $(document).ajaxComplete(debounce(de_handle, 1500)); 
 
-     let timer;
+     // let timer;
 
-     function debounce(fn, wait) {   
-          //return function(){
+     function debounce(fn, wait) { 
+          var timer
+          return function(){
           if (timer !== null) {
                window.clearTimeout(timer);
           }
           timer = window.setTimeout(fn, wait);
-          // }
+          }
      }
 
-     function handle() {
+     function de_handle() {
           // console.log(Math.random());
           console.log('aC2', 'ajaxComplete');
           let literature = $("div.sidebar-filter");
